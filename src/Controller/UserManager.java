@@ -1,5 +1,18 @@
 package Controller;
 
-public class UserManager {
+import Dao.UserDao;
+import Entity.User;
 
+public class UserManager {
+    private final UserDao userDao;
+    public UserManager(){
+        this.userDao=new UserDao();
+    }
+        public User findByLogin(String username,String password){
+            return this.userDao.findByLogin(username,password);
+        }
+        public String findByRole(String username,String password){
+        return this.userDao.findByRole(username, password);
+
+        }
 }

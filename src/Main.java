@@ -1,8 +1,10 @@
-import View.UserView;
+import Core.Db;
+import View.LoginView;
 
 public class Main {
     public static void main(String[] args) {
-        UserView userView=new UserView();
+        Db db=new Db();
+       LoginView loginView=new LoginView();
 
     }
 }

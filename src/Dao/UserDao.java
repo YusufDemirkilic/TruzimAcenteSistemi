@@ -26,23 +26,46 @@ public class UserDao {
         }
         return userList;
     }
-    public User findByLogin(String username,String password,String role){
+    public User findByLogin(String username,String password){
         User obj=null;
-        String query="Select * From public.User Where username = ? And password = ? And role = ?";
+        String query="Select * From public.User Where username= ? And password = ? ";
         try{
             PreparedStatement pr=this.con.prepareStatement(query);
             pr.setString(1,username);
             pr.setString(2,password);
-            pr.setString(3,role);
             ResultSet rs= pr.executeQuery();
             if(rs.next()){
                 obj=this.match(rs);
+                System.out.println(rs.getString("username"));
             }
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
         return  obj;
+    }
+    public String findByRole(String username,String password){
+        String roleis =null;
+        String query="Select * From public.User Where username= ? And password = ? ";
+        try{
+            PreparedStatement pr=this.con.prepareStatement(query);
+            pr.setString(1,username);
+            pr.setString(2,password);
+            ResultSet rs =pr.executeQuery();
+
+            if (rs.next()){
+                roleis=rs.getString("admin");
+                return roleis;
+            }
+            if (rs.next()){
+               roleis=rs.getString("employee");
+                return roleis;
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return roleis;
+
     }
     public User match(ResultSet resultSet) throws SQLException{
         User obj=new User();
