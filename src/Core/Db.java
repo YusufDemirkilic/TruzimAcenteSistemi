@@ -7,12 +7,12 @@ import java.sql.SQLException;
 public class Db {
     private static  Db instance =null;
     private Connection connection=null;
-    private  final String DB_URL="jdbc:postgresql://localhost:5432/TruzimAcentaSistem";
+    private  final String DB_URL="jdbc:postgresql://localhost/TruzimAcenteSistemi";
     private final String DB_USERNAME="postgres";
-    private final String DB_PASS="postgre";
+    private final String DB_PASS="1234";
     public Db(){
         try{
-            this.connection= DriverManager.getConnection("jdbc:postgresql://localhost:5432/TruzimAcentaSistem","postgres","postgre");
+            this.connection=DriverManager.getConnection(DB_URL,DB_USERNAME,DB_PASS);
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }

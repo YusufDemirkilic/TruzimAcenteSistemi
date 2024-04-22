@@ -11,8 +11,8 @@ public class UserManager {
         public User findByLogin(String username,String password){
             return this.userDao.findByLogin(username,password);
         }
-        public String findByRole(String username,String password){
-        return this.userDao.findByRole(username, password);
+        public User findByRole(String role){
+        return this.userDao.findByRole(role);
 
         }
 }
