@@ -5,6 +5,7 @@ import Entity.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserDao {
@@ -48,27 +49,44 @@ public class UserDao {
         return obj;
     }
 
-    public User findByRole(String role) {
-        User obj=null;
-        String roleis = null;
+    public List<User>  findByRole(String role) {
+        List<User> userList = new ArrayList<>();
         String query = "Select * From public.user Where role= ? ";
         try {
             PreparedStatement pr = this.con.prepareStatement(query);
             pr.setString(1, role);
             ResultSet rs = pr.executeQuery();
 
-            if (rs.next()) {
-                if (rs.getString("admin").equals(role == "admin")) {
-                    return this.match(rs);
-                }
-
+            while (rs.next()) {
+                userList.add(this.match(rs));
             }
-
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return obj;
+        return userList;
+    }
+    public void updateUser(User user) throws SQLException {
+        String query = "UPDATE public.user SET username = ?, role = ? WHERE id = ?";
+        PreparedStatement pr = this.con.prepareStatement(query);
+        pr.setString(1, user.getUsername());
+        pr.setString(2, user.getRole());
+        pr.setInt(3, user.getId());
+        pr.execute();
+    }
+    public void delete(User user) throws SQLException {
+        String query = "DELETE FROM public.user WHERE id = ?";
+        PreparedStatement pr = this.con.prepareStatement(query);
+        pr.setInt(1, user.getId());
+        pr.execute();
+    }
+    public void saveUser(User user) throws SQLException {
+        String query = "INSERT INTO public.user(username, password, role) VALUES(?,?,?)";
+        PreparedStatement pr = this.con.prepareStatement(query);
+        pr.setString(1, user.getUsername());
+        pr.setString(2, user.getPassword());
+        pr.setString(3, user.getRole());
+        pr.execute();
     }
 
     public User match(ResultSet resultSet) throws SQLException {
