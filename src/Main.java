@@ -4,9 +4,7 @@ import View.LoginView;
 
 public class Main {
     public static void main(String[] args) {
-      // LoginView loginView=new LoginView();
-      //  Db db=new Db();
-        Helper.setTheme();
-        LoginView loginView=new LoginView();
+        Helper.setTheme();// tema değişimi için
+        LoginView loginView=new LoginView(); // gitiş ekranı açmak için
     }
 }

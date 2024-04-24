@@ -32,7 +32,7 @@ public class EmployeeView extends JFrame {
         setVisible(true);
         modelHotel.addColumn("Pansiyon");
         tbl_hostel.setModel(modelHotel);
-        btn_hoteladd.addActionListener(e -> {
+        btn_hoteladd.addActionListener(e -> {// otel eklemeye basılırsa ekleme sayfasına geçme
                 HotelAddView hotelAddView=new HotelAddView();
                 hotelAddView.setVisible(true);
                 modelHotel.setRowCount(0);
@@ -45,7 +45,7 @@ public class EmployeeView extends JFrame {
         tbl_hostel.setModel(modelHostel);
 
         // tbl_otel'e ListSelectionListener ekleme
-        tbl_hotel.getSelectionModel().addListSelectionListener(e -> {
+        tbl_hotel.getSelectionModel().addListSelectionListener(e -> {//otel tablosundan pansiyon verileri alıp harici tabloya atama
             if (!e.getValueIsAdjusting()) {
                 // tbl_otel'dan seçilen satırı kontrol et
                 int selectedRow = tbl_hotel.getSelectedRow();
@@ -63,7 +63,7 @@ public class EmployeeView extends JFrame {
                 }
             }
         });
-        tbl_hotel.getSelectionModel().addListSelectionListener(e->{
+        tbl_hotel.getSelectionModel().addListSelectionListener(e->{// otel tablosundan tesis özeliklerini seçip farklı bri taploya yazdrıma
             if (!e.getValueIsAdjusting()){
                 int selectedRow= tbl_hotel.getSelectedRow();
                 if (selectedRow>=0){
@@ -78,7 +78,7 @@ public class EmployeeView extends JFrame {
         adjustColumnWidths(tbl_hotel);
     }
 
-    public void showTable() {
+    public void showTable() {// otel tablosu kolon oluştruma ve veri atama
 
         modelHotel.setRowCount(0);
         modelHotel.setColumnCount(0);

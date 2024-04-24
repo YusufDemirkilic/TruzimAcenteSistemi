@@ -20,7 +20,7 @@ public class LoginView extends JFrame{
         setVisible(true);
 
         this.userManager=new UserManager();
-        btn_login.addActionListener(e -> {
+        btn_login.addActionListener(e -> {// kullanıcı adı ve şifreye göre panel yönlendirme
                 JTextField[] checkFieldList = {this.fld_username,this.fld_pass};
                 if (Helper.isFieldListEmpty(checkFieldList)){
                     Helper.showMsg("fill");
@@ -31,11 +31,11 @@ public class LoginView extends JFrame{
                         Helper.showMsg("notFound");
                     } else  {
                         String role= loginUser.getRole();
-                        if (role.equals("admin")){
+                        if (role.equals("admin")){// admin ise admin paneli açma
                             AdminView adminView=new AdminView();
                             adminView.setVisible(true);
                         }
-                        else if(role.equals("employee")){
+                        else if(role.equals("employee")){//employe ise amploye paneli açma
                             EmployeeView employeeView=new EmployeeView();
                             employeeView.setVisible(true);
                         }

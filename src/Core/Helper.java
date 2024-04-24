@@ -28,7 +28,7 @@ public class Helper {
         optionPayneTR();
         String msg;
         String title;
-        switch(str){
+        switch(str){ // hata mesajları
             case"fill"->{
                 msg="Lütfen tüm alanları doldurunuz !";
                 title="Hata!";
@@ -50,12 +50,12 @@ public class Helper {
                 title = "Mesaj";
             }
         }
-        JOptionPane.showMessageDialog(null,msg,title,JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,msg,title,JOptionPane.INFORMATION_MESSAGE);// hata mesajları gönderme
     }
-    public static boolean isFieldEmpty(JTextField field){
+    public static boolean isFieldEmpty(JTextField field){  // field boş olup olmadığını kotrol etme
         return field.getText().trim().isEmpty();
     }
-    public static boolean isFieldListEmpty(JTextField[] fieldList){
+    public static boolean isFieldListEmpty(JTextField[] fieldList){ // field list boş olup olmadığını kotrol etme
         for (JTextField field:fieldList)
             if (isFieldEmpty(field)) {
                 return true;
@@ -64,7 +64,7 @@ public class Helper {
     }
 
 
-    public static void optionPayneTR(){
+    public static void optionPayneTR(){     // hata mesajları türkçe çeviri
         UIManager.put("OptionPane.okButtonText", "Tamam");
         UIManager.put("OptionPane.yesButtonText", "Evet");
         UIManager.put("OptionPane.noButtonText", "Hayır");

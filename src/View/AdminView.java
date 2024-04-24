@@ -52,7 +52,7 @@ public class AdminView extends JFrame {
 
         });
 
-        cmb_filter.addActionListener(e -> {
+        cmb_filter.addActionListener(e -> {// kullanıcı filtreleme için combobox veri atama işlemi
             String role = cmb_filter.getItemAt(cmb_filter.getSelectedIndex()).toString();
             model.setRowCount(0);
 
@@ -65,7 +65,7 @@ public class AdminView extends JFrame {
             }
 
         });
-        btn_delete.addActionListener(e -> {
+        btn_delete.addActionListener(e -> {// seçilen indisi silme işlemi
             User user = new User();
             user.setId(Integer.parseInt(table1.getValueAt(table1.getSelectedRow(), table1.getSelectedColumn()).toString()));
             try {
@@ -78,7 +78,7 @@ public class AdminView extends JFrame {
             fillTableWithUser();
         });
 
-        btn_register.addActionListener(e -> {
+        btn_register.addActionListener(e -> {// sgirilen verileri database kaydetme işlemi
             User userNew = new User();
             userNew.setUsername(fld_username.getText());
             userNew.setPassword(fld_pass.getText());
@@ -116,7 +116,7 @@ public class AdminView extends JFrame {
         table1.setModel(model);
     }
 
-    private void fillTableWithUser() {
+    private void fillTableWithUser() {//tabloyu yeniden yazdırma işlemi
         List<User> userList = userManager.findAll();
         userList.forEach(x -> {
             model.addRow(new Object[]{x.getId(), x.getUsername(), x.getRole()});

@@ -50,7 +50,7 @@ public class HotelAddView extends  JFrame{
         cmb_star.addItem(5);
 
 
-        btn_register.addActionListener(e -> {
+        btn_register.addActionListener(e -> {// otel ekle butonuna basılınca textfield ve radiobutondan aldığı verileri database atma
                 JTextField[] checkField ={fld_hotelName,fld_address,fld_mail,fld_phoneNumber};
 
                 if (Helper.isFieldListEmpty(checkField)){
@@ -85,7 +85,7 @@ public class HotelAddView extends  JFrame{
                 }
         });
     }
-    public String checkHostel(){
+    public String checkHostel(){//seçilen pasniyon özellikleri alıp string olarak tabloya atama
         JRadioButton[] checkRadioButton={rd_ultraAll,rd_all,rd_roomBreakfast,rd_fullPans,rd_halfPans,rd_bed,rd_notAlcohol};
         String radioString="";
         for (JRadioButton rd_check:checkRadioButton){
@@ -95,7 +95,7 @@ public class HotelAddView extends  JFrame{
         }
         return radioString;
     }
-    public String checkFacility(){
+    public String checkFacility(){//seçilen tesis özellikleri alıp string olarak tabloya atama
         JRadioButton[] checkRadioButton={rd_carPark,rd_wifi,rd_pool,rd_gym,rd_concierge,rd_spa,rd_roomServices};
         String radioString="";
         for (JRadioButton rd_check:checkRadioButton){

@@ -15,7 +15,7 @@ public class UserDao {
         this.con = Db.getInstance();
     }
 
-    public ArrayList<User> findAll() {
+    public ArrayList<User> findAll() {// Data base bağlantısındaki tablodaki tüm verileri listeleme
         ArrayList<User> userList = new ArrayList<>();
         String sql = "Select * From public.user";
         try {
@@ -30,7 +30,7 @@ public class UserDao {
         return userList;
     }
 
-    public User findByLogin(String username, String password) {
+    public User findByLogin(String username, String password) {// kullanıcı girişi için veri kontrolü
         User obj = null;
         String query = "Select * From public.user Where username= ? And password = ? ";
         try {
@@ -49,7 +49,7 @@ public class UserDao {
         return obj;
     }
 
-    public List<User>  findByRole(String role) {
+    public List<User>  findByRole(String role) {// Kullnıcı girişi için rol sorgusu
         List<User> userList = new ArrayList<>();
         String query = "Select * From public.user Where role= ? ";
         try {
@@ -66,7 +66,7 @@ public class UserDao {
         }
         return userList;
     }
-    public void updateUser(User user) throws SQLException {
+    public void updateUser(User user) throws SQLException { // databasdeki parametrelerce atnanan verileri güncelleme
         String query = "UPDATE public.user SET username = ?, role = ? WHERE id = ?";
         PreparedStatement pr = this.con.prepareStatement(query);
         pr.setString(1, user.getUsername());
@@ -74,13 +74,13 @@ public class UserDao {
         pr.setInt(3, user.getId());
         pr.execute();
     }
-    public void delete(User user) throws SQLException {
+    public void delete(User user) throws SQLException {     // databasedeki veriyi parametreden verilen id ile silme
         String query = "DELETE FROM public.user WHERE id = ?";
         PreparedStatement pr = this.con.prepareStatement(query);
         pr.setInt(1, user.getId());
         pr.execute();
     }
-    public void saveUser(User user) throws SQLException {
+    public void saveUser(User user) throws SQLException {// database parametrelere atanan verileri ekleme veya kaydetme
         String query = "INSERT INTO public.user(username, password, role) VALUES(?,?,?)";
         PreparedStatement pr = this.con.prepareStatement(query);
         pr.setString(1, user.getUsername());
@@ -89,7 +89,7 @@ public class UserDao {
         pr.execute();
     }
 
-    public User match(ResultSet resultSet) throws SQLException {
+    public User match(ResultSet resultSet) throws SQLException {// database ile user class nesneleri birleştirme
         User obj = new User();
         obj.setId(resultSet.getInt("id"));
         obj.setUsername(resultSet.getString("username"));

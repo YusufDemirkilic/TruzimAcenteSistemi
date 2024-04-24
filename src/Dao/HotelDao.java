@@ -14,7 +14,7 @@ public class HotelDao {
         this.con = Db.getInstance();
     }
 
-    public ArrayList<Hotel> findAll() {
+    public ArrayList<Hotel> findAll() {// Database bağlantısındaki tablodaki tüm verileri listeleme
         ArrayList<Hotel> hotelList = new ArrayList<>();
         String sql = "Select * From public.hotel";
         try {
@@ -29,7 +29,7 @@ public class HotelDao {
         return hotelList;
     }
 
-    public static Hotel match(ResultSet resultSet) throws SQLException {
+    public static Hotel match(ResultSet resultSet) throws SQLException {// database ile hotel class nesneleri birleştirme
         // Hotel nesnesi oluşturma
         Hotel htl = new Hotel();
 
@@ -47,7 +47,7 @@ public class HotelDao {
         return htl;
     }
 
-    public void save(Hotel hotel) {
+    public void save(Hotel hotel) {// database dışardan alınana parametredeki verileri ekleme, kayıt etme
         String query = "INSERT INTO public.hotel (hotel_name, address, email, phone, star, pansiyon, tesis, dönem)"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pr = con.prepareStatement(query)) {
