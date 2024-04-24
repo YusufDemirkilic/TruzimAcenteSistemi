@@ -5,70 +5,92 @@ import Entity.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserDao {
     private final Connection con;
-    public UserDao(){
-        this.con= Db.getInstance();
+
+    public UserDao() {
+        this.con = Db.getInstance();
     }
-    public ArrayList<User> findAll(){
-        ArrayList<User> userList=new ArrayList<>();
-        String sql="Select * From public.User";
-        try{
-            Statement statement=this.con.createStatement();
-            ResultSet rs=statement.executeQuery(sql);
-            while (rs.next()){
+
+    public ArrayList<User> findAll() {
+        ArrayList<User> userList = new ArrayList<>();
+        String sql = "Select * From public.user";
+        try {
+            Statement statement = this.con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
                 userList.add(this.match(rs));
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return userList;
     }
-    public User findByLogin(String username,String password){
-        User obj=null;
-        String query="Select * From public.User Where username= ? And password = ? ";
-        try{
-            PreparedStatement pr=this.con.prepareStatement(query);
-            pr.setString(1,username);
-            pr.setString(2,password);
-            ResultSet rs= pr.executeQuery();
-            if(rs.next()){
-                obj=this.match(rs);
-                System.out.println(rs.getString("username"));
+
+    public User findByLogin(String username, String password) {
+        User obj = null;
+        String query = "Select * From public.user Where username= ? And password = ? ";
+        try {
+            PreparedStatement pr = this.con.prepareStatement(query);
+            pr.setString(1, username);
+            pr.setString(2, password);
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()) {
+                obj = this.match(rs);
             }
 
-        }catch (SQLException e){
+
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return  obj;
+        return obj;
     }
-    public String findByRole(String username,String password){
-        String roleis =null;
-        String query="Select * From public.User Where username= ? And password = ? ";
-        try{
-            PreparedStatement pr=this.con.prepareStatement(query);
-            pr.setString(1,username);
-            pr.setString(2,password);
-            ResultSet rs =pr.executeQuery();
 
-            if (rs.next()){
-                roleis=rs.getString("admin");
-                return roleis;
+    public List<User>  findByRole(String role) {
+        List<User> userList = new ArrayList<>();
+        String query = "Select * From public.user Where role= ? ";
+        try {
+            PreparedStatement pr = this.con.prepareStatement(query);
+            pr.setString(1, role);
+            ResultSet rs = pr.executeQuery();
+
+            while (rs.next()) {
+                userList.add(this.match(rs));
             }
-            if (rs.next()){
-               roleis=rs.getString("employee");
-                return roleis;
-            }
-        }catch (SQLException e){
+
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return roleis;
-
+        return userList;
     }
-    public User match(ResultSet resultSet) throws SQLException{
-        User obj=new User();
+    public void updateUser(User user) throws SQLException {
+        String query = "UPDATE public.user SET username = ?, role = ? WHERE id = ?";
+        PreparedStatement pr = this.con.prepareStatement(query);
+        pr.setString(1, user.getUsername());
+        pr.setString(2, user.getRole());
+        pr.setInt(3, user.getId());
+        pr.execute();
+    }
+    public void delete(User user) throws SQLException {
+        String query = "DELETE FROM public.user WHERE id = ?";
+        PreparedStatement pr = this.con.prepareStatement(query);
+        pr.setInt(1, user.getId());
+        pr.execute();
+    }
+    public void saveUser(User user) throws SQLException {
+        String query = "INSERT INTO public.user(username, password, role) VALUES(?,?,?)";
+        PreparedStatement pr = this.con.prepareStatement(query);
+        pr.setString(1, user.getUsername());
+        pr.setString(2, user.getPassword());
+        pr.setString(3, user.getRole());
+        pr.execute();
+    }
+
+    public User match(ResultSet resultSet) throws SQLException {
+        User obj = new User();
         obj.setId(resultSet.getInt("id"));
         obj.setUsername(resultSet.getString("username"));
         obj.setPassword(resultSet.getString("password"));

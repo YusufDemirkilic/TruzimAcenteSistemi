@@ -12,7 +12,7 @@ public class Db {
     private final String DB_PASS="postgre";
     public Db(){
         try{
-            this.connection= DriverManager.getConnection("jdbc:postgresql://localhost:5432/TruzimAcentaSistem","postgres","postgre");
+            this.connection=DriverManager.getConnection(DB_URL,DB_USERNAME,DB_PASS);
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
