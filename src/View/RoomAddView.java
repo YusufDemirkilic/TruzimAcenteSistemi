@@ -7,8 +7,6 @@ import Entity.Hotel;
 import Entity.Room;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
@@ -19,7 +17,7 @@ import java.util.Set;
 import static View.EmployeeView.modelRoom;
 import static View.EmployeeView.showRoomTable;
 
-public class RoomAddView extends JFrame{
+public class RoomAddView extends JFrame {
     private JPanel container;
     private JTextField room_size;
     private JComboBox room_hotel;
@@ -31,12 +29,14 @@ public class RoomAddView extends JFrame{
     private JCheckBox kasaCheckBox;
     private JCheckBox projeksiyonCheckBox;
     private JButton btn_add;
+    private JTextField fld_stock;
     private HotelManager hotelManager = new HotelManager();
     private RoomManager roomManager = new RoomManager();
-    RoomAddView(){
+
+    RoomAddView() {
         add(container);
-        setSize(400,450);
-        this.setLocation(Helper.getLocationPoint("x",this.getSize()),Helper.getLocationPoint("y",this.getSize()));
+        setSize(400, 450);
+        this.setLocation(Helper.getLocationPoint("x", this.getSize()), Helper.getLocationPoint("y", this.getSize()));
         setVisible(true);
         fillHotelCombobox();
         fillRoomTypeCombobox();
@@ -46,6 +46,7 @@ public class RoomAddView extends JFrame{
             Room room = new Room();
             // hotel ismini comboboxdan alır seçime göre
             String hotelName = room_hotel.getItemAt(room_hotel.getSelectedIndex()).toString();
+
             //seçilen hotel isminin id'sini database'den bulur
             int hotelId = hotelList.stream()
                     .filter(x -> x.getHotelName().equals(hotelName))
@@ -66,9 +67,12 @@ public class RoomAddView extends JFrame{
             room.setRoomType((String) room_type.getItemAt(room_type.getSelectedIndex()));
             room.setPrice(room_price.getText());
             room.setAvailability(true);
+            room.setStock(Integer.parseInt(fld_stock.getText()));
             try {
-                roomManager.saveRoom(room);
+                roomManager.save(room);
+                JOptionPane.showMessageDialog(this, "Oda başarıyla eklendi.");
             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Oda eklenirken hata: " + ex.getMessage());
                 throw new RuntimeException(ex);
             }
 
@@ -105,6 +109,7 @@ public class RoomAddView extends JFrame{
             }
         });
     }
+
     // Hotel combobox dolduruyor isimleri
     public void fillHotelCombobox() {
         List<Hotel> hotelList = hotelManager.findAll();
@@ -113,6 +118,7 @@ public class RoomAddView extends JFrame{
         hotelNameList.forEach(x -> room_hotel.addItem(x));
 
     }
+
     // oda tipi combobox doldurması
     public void fillRoomTypeCombobox() {
         room_type.addItem("Single Room");
@@ -120,6 +126,7 @@ public class RoomAddView extends JFrame{
         room_type.addItem("Junior Suit Room");
         room_type.addItem("Suit Room");
     }
+
     // oda tipi kombobox'ından gelen tipe göre yatak sayısı dönüyor
     public int getBedNumberFromRoomType(String type) {
         return switch (type) {

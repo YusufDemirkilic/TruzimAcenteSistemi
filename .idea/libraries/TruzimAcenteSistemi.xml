@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="TruzimAcenteSistemi">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/TruzimAcenteSistemi/postgresql-42.7.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TruzimAcenteSistemi/LGoodDatePicker-11.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

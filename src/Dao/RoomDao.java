@@ -29,9 +29,9 @@ public class RoomDao {
     }
 
     public void saveRoom(Room room) throws SQLException {
-        String query = "INSERT INTO room (hotel_id, room_size, television, mini_bar, game_console, safe, projection, bed_number, room_type, price, availability)\n" +
+        String query = "INSERT INTO room (hotel_id, room_size, television, mini_bar, game_console, safe, projection, bed_number, room_type, price, availability, stock)\n" +
                 " VALUES\n" +
-                " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         PreparedStatement pr = this.con.prepareStatement(query);
         pr.setInt(1, room.getHotelId());
         pr.setString(2, room.getRoomSize());
@@ -44,6 +44,18 @@ public class RoomDao {
         pr.setString(9, room.getRoomType());
         pr.setString(10, room.getPrice());
         pr.setBoolean(11, room.isAvailability());
+        pr.setInt(12, room.getStock());
+        pr.execute();
+    }
+
+    public void update(Room room) throws SQLException {
+        String query = "UPDATE public.room\n" +
+                "\t SET stock=?\n" +
+                "\t WHERE hotel_id = ? and room_type = ?;";
+        PreparedStatement pr = this.con.prepareStatement(query);
+        pr.setInt(1, room.getStock());
+        pr.setInt(2, room.getHotelId());
+        pr.setString(3, room.getRoomType());
         pr.execute();
     }
 
@@ -64,6 +76,7 @@ public class RoomDao {
         room.setRoomType(resultSet.getString("room_type"));
         room.setPrice(resultSet.getString("price"));
         room.setAvailability(resultSet.getBoolean("availability"));
+        room.setStock(resultSet.getInt("stock"));
 
         // room nesnesini döndürme
         return room;

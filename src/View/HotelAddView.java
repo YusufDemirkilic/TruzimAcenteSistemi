@@ -5,14 +5,12 @@ import Core.Helper;
 import Entity.Hotel;
 
 import javax.swing.*;
-import javax.swing.event.ChangeListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class HotelAddView extends  JFrame{
+import static View.EmployeeView.fillTableWithHotel;
+import static View.EmployeeView.modelHotel;
+
+public class HotelAddView extends JFrame {
 
     private JPanel container;
     private JTextField fld_address;
@@ -37,11 +35,12 @@ public class HotelAddView extends  JFrame{
     private JRadioButton rd_summer;
     private JRadioButton rd_winter;
     private JButton btn_register;
-    HotelManager hotelManager=new HotelManager();
-    public HotelAddView(){
+    HotelManager hotelManager = new HotelManager();
+
+    public HotelAddView() {
         add(container);
-        setSize(1000,600);
-        setLocation( Helper.getLocationPoint("x", this.getSize()), Helper.getLocationPoint("y", this.getSize()));
+        setSize(1000, 600);
+        setLocation(Helper.getLocationPoint("x", this.getSize()), Helper.getLocationPoint("y", this.getSize()));
         setVisible(true);
         cmb_star.addItem(1);
         cmb_star.addItem(2);
@@ -51,56 +50,60 @@ public class HotelAddView extends  JFrame{
 
 
         btn_register.addActionListener(e -> {// otel ekle butonuna basılınca textfield ve radiobutondan aldığı verileri database atma
-                JTextField[] checkField ={fld_hotelName,fld_address,fld_mail,fld_phoneNumber};
+            JTextField[] checkField = {fld_hotelName, fld_address, fld_mail, fld_phoneNumber};
 
-                if (Helper.isFieldListEmpty(checkField)){
-                    Helper.showMsg("fill");
-                }else {
-                    String sesonCheck="";
-                    Hotel hotelNew=new Hotel();
-                    hotelNew.setHotelName(fld_hotelName.getText()); // fld_hotelName
-                    hotelNew.setAddress(fld_address.getText()); // fld_address
-                    hotelNew.setEmail(fld_mail.getText()); // fld_mail
-                    hotelNew.setPhone(fld_phoneNumber.getText()); // fld_phoneNumber
-                    hotelNew.setStar(cmb_star.getItemCount());
-                    hotelNew.setPansiyon(checkHostel());
-                    hotelNew.setTesis(checkFacility());
-                    if (rd_summer.isSelected()){
-                        sesonCheck += rd_summer.getText();
-                    }
-                    if (rd_winter.isSelected()){
-                         sesonCheck += rd_winter.getText();
-                    }
-                    hotelNew.setSeson(sesonCheck);
-                    if (hotelNew.getId() == 0) {
-                        try {
-                            this.hotelManager.saveHotel(hotelNew);
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                        Helper.showMsg("done");
-                        dispose();
-
-                    }
+            if (Helper.isFieldListEmpty(checkField)) {
+                Helper.showMsg("fill");
+            } else {
+                String sesonCheck = "";
+                Hotel hotelNew = new Hotel();
+                hotelNew.setHotelName(fld_hotelName.getText()); // fld_hotelName
+                hotelNew.setAddress(fld_address.getText()); // fld_address
+                hotelNew.setEmail(fld_mail.getText()); // fld_mail
+                hotelNew.setPhone(fld_phoneNumber.getText()); // fld_phoneNumber
+                hotelNew.setStar(cmb_star.getItemCount());
+                hotelNew.setPansiyon(checkHostel());
+                hotelNew.setTesis(checkFacility());
+                if (rd_summer.isSelected()) {
+                    sesonCheck += rd_summer.getText();
                 }
+                if (rd_winter.isSelected()) {
+                    sesonCheck += rd_winter.getText();
+                }
+                hotelNew.setSeson(sesonCheck);
+                if (hotelNew.getId() == 0) {
+                    try {
+                        this.hotelManager.save(hotelNew);
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    Helper.showMsg("done");
+                    dispose();
+
+                }
+            }
+            modelHotel.setRowCount(0);
+            fillTableWithHotel();
         });
     }
-    public String checkHostel(){//seçilen pasniyon özellikleri alıp string olarak tabloya atama
-        JRadioButton[] checkRadioButton={rd_ultraAll,rd_all,rd_roomBreakfast,rd_fullPans,rd_halfPans,rd_bed,rd_notAlcohol};
-        String radioString="";
-        for (JRadioButton rd_check:checkRadioButton){
-                if (rd_check.isSelected()){
-                    radioString += rd_check.getText()+",\n";
-                }
+
+    public String checkHostel() {//seçilen pasniyon özellikleri alıp string olarak tabloya atama
+        JRadioButton[] checkRadioButton = {rd_ultraAll, rd_all, rd_roomBreakfast, rd_fullPans, rd_halfPans, rd_bed, rd_notAlcohol};
+        String radioString = "";
+        for (JRadioButton rd_check : checkRadioButton) {
+            if (rd_check.isSelected()) {
+                radioString += rd_check.getText() + ",\n";
+            }
         }
         return radioString;
     }
-    public String checkFacility(){//seçilen tesis özellikleri alıp string olarak tabloya atama
-        JRadioButton[] checkRadioButton={rd_carPark,rd_wifi,rd_pool,rd_gym,rd_concierge,rd_spa,rd_roomServices};
-        String radioString="";
-        for (JRadioButton rd_check:checkRadioButton){
-            if (rd_check.isSelected()){
-                radioString += rd_check.getText()+",\n";
+
+    public String checkFacility() {//seçilen tesis özellikleri alıp string olarak tabloya atama
+        JRadioButton[] checkRadioButton = {rd_carPark, rd_wifi, rd_pool, rd_gym, rd_concierge, rd_spa, rd_roomServices};
+        String radioString = "";
+        for (JRadioButton rd_check : checkRadioButton) {
+            if (rd_check.isSelected()) {
+                radioString += rd_check.getText() + ",\n";
             }
         }
         return radioString;

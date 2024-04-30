@@ -6,8 +6,6 @@ import Entity.User;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +21,8 @@ public class AdminView extends JFrame {
     private JButton btn_delete;
     private JButton btn_update;
     private JButton btn_register;
+    private JButton btn_logaout_admin;
+    private JButton btn_help;
     private DefaultTableModel model = new DefaultTableModel();
     UserManager userManager = new UserManager();
 
@@ -99,18 +99,29 @@ public class AdminView extends JFrame {
         });
 
 
+        btn_logaout_admin.addActionListener(e -> {
+            this.dispose();
+        });
+        btn_help.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, "Kullanıcı silmek için, kullanıcı numarasına" +
+                    " tıklayın ve Sil butonuna basın. Kullanıcı güncellemek için, güncellemek istediğiniz alana" +
+                    " çift tıklayın, değişikliğinizi yapın ve güncelle butonuna basın.");
+        });
     }
 
     public void showTable() {
         List<User> userList = userManager.findAll(); // user list
         Set<String> roleList = new HashSet<>();// unique olarak rol tutan liste
+
         model.addColumn("ID");
         model.addColumn("Username");
         model.addColumn("Password");
+
         userList.forEach(user -> {
             model.addRow(new Object[]{user.getId(), user.getUsername(), user.getRole()});// db den userı tabloya basma
             roleList.add(user.getRole());
         });
+
         roleList.add("All");
         roleList.forEach(x -> cmb_filter.addItem(x));
         table1.setModel(model);

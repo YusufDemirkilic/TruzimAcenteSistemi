@@ -12,7 +12,16 @@ public class Room {
     private String price;
     private int bedNumber;
     private boolean availability;
+    private int stock;
     private String roomType;
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
     public String getRoomType() {
         return roomType;

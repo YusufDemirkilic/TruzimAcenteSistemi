@@ -1,7 +1,6 @@
 package Dao;
 
 import Core.Db;
-import Core.Helper;
 import Entity.Hotel;
 
 import java.sql.*;
@@ -42,13 +41,14 @@ public class HotelDao {
         htl.setStar(resultSet.getInt("star"));
         htl.setPansiyon(resultSet.getString("pansiyon"));
         htl.setTesis(resultSet.getString("tesis"));
+        htl.setSeson(resultSet.getString("sezon"));
 
         // Hotel nesnesini döndürme
         return htl;
     }
 
     public void save(Hotel hotel) {// database dışardan alınana parametredeki verileri ekleme, kayıt etme
-        String query = "INSERT INTO public.hotel (hotel_name, address, email, phone, star, pansiyon, tesis, dönem)"
+        String query = "INSERT INTO public.hotel (hotel_name, address, email, phone, star, pansiyon, tesis, sezon)"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pr = con.prepareStatement(query)) {
             pr.setString(1, hotel.getHotelName());
@@ -60,7 +60,7 @@ public class HotelDao {
             pr.setString(7, hotel.getTesis());
             pr.setString(8, hotel.getSeson());
             pr.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

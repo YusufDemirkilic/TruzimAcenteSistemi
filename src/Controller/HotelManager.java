@@ -16,7 +16,8 @@ public class HotelManager {
     public ArrayList<Hotel> findAll() {
         return hotelDao.findAll();
     }
-    public void saveHotel(Hotel hotel) throws SQLException {
+
+    public void save(Hotel hotel) throws SQLException {
         this.hotelDao.save(hotel);
     }
 }

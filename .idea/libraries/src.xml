@@ -1,6 +1,7 @@
 <component name="libraryTable">
-  <library name="postgresql-42.7.3">
+  <library name="src">
     <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/LGoodDatePicker-11.2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/postgresql-42.7.3.jar!/" />
     </CLASSES>
     <JAVADOC />

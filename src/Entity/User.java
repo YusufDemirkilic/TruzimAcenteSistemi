@@ -2,12 +2,14 @@ package Entity;
 
 public class User {
     private int id;
-    private  String username;
-    private  String password;
+    private String username;
+    private String password;
     private String role;
-    public User(){
+
+    public User() {
 
     }
+
     public User(int id, String username, String password, String role) {
         this.id = id;
         this.username = username;
@@ -46,6 +48,7 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
     @Override
     public String toString() {
         return "user{" +

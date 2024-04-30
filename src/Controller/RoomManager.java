@@ -13,11 +13,15 @@ public class RoomManager {
         this.roomDao = new RoomDao();
     }
 
-    public List<Room> findAll(){
+    public List<Room> findAll() {
         return roomDao.findAll();
     }
 
-    public void saveRoom(Room room) throws SQLException {
+    public void save(Room room) throws SQLException {
         roomDao.saveRoom(room);
+    }
+
+    public void update(Room room) throws SQLException {
+        roomDao.update(room);
     }
 }

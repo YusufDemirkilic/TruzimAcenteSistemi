@@ -12,7 +12,7 @@ public class Hotel {
     private String seson;
 
     // Hotel sınıfının yapıcı metodu
-    public Hotel(int id, String hotelName, String address, String email, String phone, int star, String pansiyon, String tesis,String seson) {
+    public Hotel(int id, String hotelName, String address, String email, String phone, int star, String pansiyon, String tesis, String seson) {
         this.id = id;
         this.hotelName = hotelName;
         this.address = address;
@@ -21,9 +21,10 @@ public class Hotel {
         this.star = star;
         this.pansiyon = pansiyon;
         this.tesis = tesis;
-        this.seson=seson;
+        this.seson = seson;
     }
-    public Hotel(){
+
+    public Hotel() {
 
     }
 

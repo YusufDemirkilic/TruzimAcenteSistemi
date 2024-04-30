@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="976d92c8-dacc-4c9f-b158-99a92450545e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/TruzimAcenteSistemi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/src.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ReservasionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dao/ReservasionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Reservasion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_7_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TruzimAcenteSistemi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TruzimAcenteSistemi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HotelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HotelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RoomManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Db.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/HotelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/HotelDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/RoomDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/RoomDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReadMe.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AdminView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AdminView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/EmployeeView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EmployeeView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EmployeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/HotelAddView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/HotelAddView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/LoginView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/LoginView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ReservationAddView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReservationAddView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ReservationAddView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReservationAddView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/RoomAddView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/RoomAddView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/RoomAddView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/RoomAddView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2foJZZttw2RNF7o1rxVA53kFMN5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/yusuf/Downloads/TruzimAcenteSistemi",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="976d92c8-dacc-4c9f-b158-99a92450545e" name="Changes" comment="" />
+      <created>1714461554112</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714461554112</updated>
+    </task>
+    <servers />
+  </component>
+</project>
