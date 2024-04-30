@@ -99,6 +99,7 @@ Rezervasyon eklemesi tamamlanır.
 NOT: SQL tablo oluşturma için TABLES.md dosyasındaki scriptleri kullanabilirsiniz.
 
 [Flow Diagram için tıklayınız](https://lucid.app/lucidchart/c37eefb2-8413-4080-a697-53666739b8d3/edit?page=0_0&invitationId=inv_f04ab0ab-3b8e-40c4-96e5-7f18e1c7bab8)
+
 [Kullanım Videosu](https://youtu.be/pILPJu-pMSQ)
 
 **Proje Göreselleri**
