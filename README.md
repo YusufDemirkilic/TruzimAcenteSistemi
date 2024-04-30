@@ -99,21 +99,24 @@ Rezervasyon eklemesi tamamlanır.
 NOT: SQL tablo oluşturma için TABLES.md dosyasındaki scriptleri kullanabilirsiniz.
 
 [Flow Diagram için tıklayınız](https://lucid.app/lucidchart/c37eefb2-8413-4080-a697-53666739b8d3/edit?page=0_0&invitationId=inv_f04ab0ab-3b8e-40c4-96e5-7f18e1c7bab8)
+[Kullanım Videosu](https://youtu.be/pILPJu-pMSQ)
 
 **Proje Göreselleri**
 
 - Kullanıcı girişi
 
-![Ekran Resmi 2024-04-30 12.14.50.png](..%2F..%2FDesktop%2FEkran%20Resmi%202024-04-30%2012.14.50.png)
+<img width="855" alt="Ekran Resmi 2024-04-30 12 14 50" src="https://github.com/YusufDemirkilic/TruzimAcenteSistemi/assets/81050891/6b387cba-86ff-4120-885e-ca2aec6a9122">
 
 - Otel Listeleme
-![Ekran Resmi 2024-04-30 12.17.20.png](..%2F..%2FDesktop%2FEkran%20Resmi%202024-04-30%2012.17.20.png)
+  
+<img width="1440" alt="Ekran Resmi 2024-04-30 12 17 20" src="https://github.com/YusufDemirkilic/TruzimAcenteSistemi/assets/81050891/8f51edcd-242e-4a14-b536-c5a720a2c1de">
 
 - Oda Listeleme
 
-![Ekran Resmi 2024-04-30 12.17.40.png](..%2F..%2FDesktop%2FEkran%20Resmi%202024-04-30%2012.17.40.png)
+<img width="1440" alt="Ekran Resmi 2024-04-30 12 17 40" src="https://github.com/YusufDemirkilic/TruzimAcenteSistemi/assets/81050891/4c4b2e8c-5ed4-4b93-b7bf-4be9ff9c6614">
 
 
 - Rezervasyon, oda arama ve fiyat hesaplama
 
-![Ekran Resmi 2024-04-30 12.18.39.png](..%2F..%2FDesktop%2FEkran%20Resmi%202024-04-30%2012.18.39.png)
+<img width="1440" alt="Ekran Resmi 2024-04-30 12 18 39" src="https://github.com/YusufDemirkilic/TruzimAcenteSistemi/assets/81050891/a412e6ce-0db8-4202-8841-faeae5083c8d">
+
